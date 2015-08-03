@@ -139,7 +139,7 @@ class ReadData(object):
 
     def read_kmax(self):
         """
-        Read in kmax.dat using _read_lines. Only the first line will beh
+        Read in kmax.dat using _read_lines. Only the first line will be
         read. It will be assigned to self.kmax.
         """
         name = self.name
