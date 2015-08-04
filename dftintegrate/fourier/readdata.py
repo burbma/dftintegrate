@@ -25,21 +25,21 @@ class ReadData(object):
       kgrid -- A list of lists. Each inner list is a triplet that
         represents a k-point. The outer list is the collection of
         the triplets or k-points and therefore represents the k-kgrid.
-        Note these are the irreducibl k-points.
+        Note these are the irreducible k-points.
 
       weights -- A list of floats. Since kgrid represents the
         irreducible wedge, each k-point has a weight that
         represents in a way how degenerate it is. These
-        are in the same order as their corresponding k-point
+        are in the same order as their corresponding k-points
         in kgrid.
 
       eigenvals -- A dictionary. At each k-point there is an
         eigenvalue (energy) for each band that was calculated. The
-        keys are the band number and the values are a list of
+        keys are the band numbers and the values are a list of
         energies for that band at each k-point.
 
       symops -- A triple nested list. The outer list is a collection
-        matrices that represent the symmetry operators for the
+        of matrices that represent the symmetry operators for the
         system calculated. The inner double nested lists are
         representations of the matrices.
 
@@ -56,11 +56,11 @@ class ReadData(object):
 
       read_symops_trans -- Read symops_trans.dat in as two lists.
 
-      read_kmax -- Read kmax from kmax.dat in. For exampl one might run
+      read_kmax -- Read kmax from kmax.dat in. For example one might run
         a calulation with a grid of 4 4 4, in this case k is 4. This
         is needed in the Fourier basis fit to ensure the highest
-        frequency term doens't exceed the Nyquist frequency. This means
-        that the highest frequency can't exeed k/2; so if k is 4
+        frequency term doesn't exceed the Nyquist frequency. This means
+        that the highest frequency can't exeed k/2, so if k is 4
         then the highest frequency can't exeed 2. Since we are in 3D we
         have to consider sqrt(x^2+x^2+x^2) < k/2, thus
         x = kmax = ceil(k/(2sqrt(3)).
