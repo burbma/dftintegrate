@@ -1,6 +1,6 @@
 """
 Classes::
-  VASPData -- A collection of function that wrap bash code to extract
+  VASPData -- A collection of functions that wrap bash code to extract
     data from VASP output into managable .dat (.txt) files.
 """
 import numpy as np
@@ -11,7 +11,7 @@ from ast import literal_eval
 
 class VASPData(object):
     """
-    A collection of function that wrap bash code to extract
+    A collection of functions that wrap bash code to extract
     data from VASP output into managable .dat (.txt) files.
 
     Variables::
@@ -39,7 +39,7 @@ class VASPData(object):
           kpts_eigenvals, symops_trans, kmax -- All are booleans that
             specify if that bit of data should be extracted from the
             VASP output files. One may use False if the corresponding
-            .dat file already exists or is hand made. Default is True for
+            .dat file already exists or is handmade. Default is True for
             all three.
         """
         self.name = name_of_data_directory
@@ -52,8 +52,8 @@ class VASPData(object):
 
     def extract_symops_trans(self):
         """
-        Use some bash code to look inside OUTCAR and grab out the
-        symmetry operators and translations and then right them to a
+        Use some bash code to look inside OUTCAR, grab the
+        symmetry operators and translations, and then write them to a
         file called symops_trans.dat. File is written to the same folder
         the OUTCAR is in.
         """
@@ -64,7 +64,7 @@ class VASPData(object):
 
     def extract_kpts_eigenvals(self):
         """"
-        Use some bash code to look inside EIGENVAL and grab out the
+        Use some bash code to look inside EIGENVAL and grab the
         k-points, weights, and eigenvalues associated with each band at
         each k-point. Write them to a file called kpts_eigenvals.dat.
         File is written to the same folder the EIGENVAL is in.
@@ -78,7 +78,7 @@ class VASPData(object):
 
     def extract_kmax(self):
         """
-        Look inside KPOINTS and grab out the number of kpoints used in
+        Look inside KPOINTS and grab the number of kpoints used in
         one direction. If the grid is not cubic i.e. 12 12 5 it will
         take the smallest. Also assumes the KPOINTS has this format:
             nxmxp! comment line
@@ -89,7 +89,7 @@ class VASPData(object):
         at least as far as what line the 12 12 12 is on. To be concrete
         the only requirement is that the grid is specified on
         the fourth line. If one wishes to use a different format for the
-        KPOINTS file they can set the kmax bool to False and genterate
+        KPOINTS file they can set the kmax bool to False and generate
         their own kmax.dat in the same directory as the VASP data to be
         used by readdata.py. GRID SIZE ON FOURTH LINE.
         """
